@@ -17,20 +17,46 @@ variable "public-subnets" {
   default     = ["192.168.32.0/25"]
 }
 
-variable "private-subnets" {
-  default     = ["192.168.32.128/25"]
+variable "ec2-ami" {
+  default = "ami-0ff21806645c5e492"
 }
 
+variable "ec2-key" {
+  default = ""
+}
+
+
+
 /*aws-instance-settings*/
-variable "ec2-config" {
+variable "ec2-config-01" {
       type = map(string)
       default = {
-          ami = "ami-0ff21806645c5e492"
+          ami = ec2-ami
           instance_type = "t2.small"
-          instance_key = "mykey"
+          instance_key = ec2-key 
           root_ebs_type = "gp2"
           root_ebs_size = "8"
       }
   }
 
+variable "ec2-config-02" {
+      type = map(string)
+      default = {
+          ami = ec2-ami
+          instance_type = "t2.small"
+          instance_key = 
+          root_ebs_type = "gp2"
+          root_ebs_size = "8"
+      }
+  }
 
+variable "ec2-config-03" {
+      type = map(string)
+      default = {
+          ami = ec2-ami
+          instance_type = "t2.small"
+          instance_key = ec2-key
+          root_ebs_type = "gp2"
+          root_ebs_size = "8"
+      }
+  }

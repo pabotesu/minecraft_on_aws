@@ -48,19 +48,3 @@ resource "aws_route_table_association" "public-route-table" {
 
 
 /*--------------------------------------end------------------------------------------*/
-/*-----------------------------private subnet settings--------------------------------*/
-resource "aws_subnet" "private-subnet" {
-    count             = length(var.private-subnets)
-    vpc_id            = aws_vpc.vpc.id
-    cidr_block        = var.private-subnets[count.index]
-    availability_zone = element(var.az, count.index)
-
-    tags = {
-        Name = "${var.project-name}-private-${element(var.az, count.index)}"
-    }
-} 
-
-
-
-/*--------------------------------------end------------------------------------------*/
-

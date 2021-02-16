@@ -13,8 +13,3 @@ variable "az" {
 variable "public-subnets" {
   default     = ""
 }
-
-variable "private-subnets" {
-  default     = ""
-}
-

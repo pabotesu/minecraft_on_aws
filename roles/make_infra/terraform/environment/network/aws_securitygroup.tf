@@ -57,7 +57,10 @@ resource "aws_security_group_rule" "serevr-inbound_https" {
   from_port   = 443
   to_port     = 443
   protocol    = "tcp"
-  cidr_blocks = [
+  cidr_blocks = [locals {
+    name = value
+  }
+  
     "0.0.0.0/0"
   ]
 
